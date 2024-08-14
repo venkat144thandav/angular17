@@ -1,0 +1,13 @@
+<div>{{ message() }}</div>
+
+  <div>
+    <input type="text"  [(ngModel)]="version" (change)="versionChange()"/>
+  </div>
+  <div>
+    <button (click)="name.set('World')">Hello World!</button>
+    <button (click)="name.set('Angular')">Hello Angular!</button>
+    <button (click)="name.set('Signals')">Hello Signals!</button>
+    <button (click)="navigate()">User List</button>
+  </div>  
+
+  <router-outlet></router-outlet>

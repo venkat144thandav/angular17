@@ -1,0 +1,29 @@
+<kendo-grid [kendoGridBinding]="gridData" [sortable]="true" [pageable]="true" [pageSize]="10" [resizable]="true"
+    [filterable]="true">
+    <ng-template kendoGridToolbarTemplate>
+        @if(adminUser){
+        <button kendoButton (click)="loadAdd()">
+            Add
+        </button>
+        }
+    </ng-template>
+    <kendo-grid-column field="id" title="ID"></kendo-grid-column>
+    <kendo-grid-column field="name" title="Name">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+            <input type="textbox" kendoTextBox [(ngModel)]="dataItem.name">
+        </ng-template>
+    </kendo-grid-column>
+    @if(adminUser){
+    <kendo-grid-column field="name" title="Action">
+        <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+            <button kendoButton (click)="onConfirmAction(dataItem)" themeColor="primary">
+                Confirm
+            </button>
+            <button kendoButton (click)="deleteUser(dataItem)">
+                Delete
+            </button>
+        </ng-template>
+    </kendo-grid-column>
+    }
+</kendo-grid>
+<div kendoDialogContainer></div>

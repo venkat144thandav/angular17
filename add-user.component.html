@@ -1,0 +1,10 @@
+<form [formGroup]="userDetails">
+    <kendo-label class="k-form" text="Name">
+      <kendo-textbox
+        formControlName="name"
+        placeholder="Enter Name"
+      ></kendo-textbox>
+    </kendo-label>
+    </form>
+    <button kendoButton (click)="save()">Save</button>
+    <button kendoButton (click)="cancel()">Cancel</button>
